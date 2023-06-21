@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Advanced text canvas</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		canvas {
+			background: black;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		input {
+			position: absolute;
+			width: calc(100% - 20px);
+			padding: 10px;
+			margin: 10px;
+			z-index: 100;
+		}
+	</style>
+  </head>
+  <body>
+	<canvas id="canvas1"></canvas>
+	<input type="text" id="textInput" placeholder="Type something...">
+	
+	<script>
+		window.addEventListener('load', function() {
+			const canvas = document.getElementById('canvas1');
+			const ctx = canvas.getContext('2d');
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
+			
+			const text = 'Hello!';
+			const textX = canvas.width/2;
+			const textY = canvas.height/2;
+			ctx.fillStyle = 'white';
+			ctx.font = '80px Helvetica';
+			ctx.textAlign = 'center';
+			ctx.textBaseline = 'middle';
+			ctx.fillText(text, textX, textY);
+		});
+	</script>
+  </body>
+</html>
